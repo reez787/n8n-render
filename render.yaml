@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    plan: free
+    region: ohio
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        value: aws-0-us-east-1.pooler.supabase.com
+      - key: DB_POSTGRESDB_PORT
+        value: "5432"
+      - key: DB_POSTGRESDB_DATABASE
+        value: postgres
+      - key: DB_POSTGRESDB_USER
+        value: postgres.jrnisgukwflzdbivmxkw
+      - key: DB_POSTGRESDB_PASSWORD
+        sync: false
+      - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
+        value: "false"
+      - key: N8N_ENCRYPTION_KEY
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
+      - key: N8N_EDITOR_BASE_URL
+        sync: false
